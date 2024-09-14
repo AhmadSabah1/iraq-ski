@@ -1,3 +1,5 @@
+// app/agreements/new/page.tsx
+
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -7,19 +9,17 @@ import { agreements, Agreement } from '../../../data/agreements';
 export default function NewAgreementPage() {
     const router = useRouter();
 
-    // State til formularfelter
+    // Form state
     const [title, setTitle] = useState('');
-    const [status, setStatus] = useState<AgreementStatus>(AgreementStatus.Aktiv);
+    const [status, setStatus] = useState<AgreementStatus>(AgreementStatus.Active);
     const [supplier, setSupplier] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [terms, setTerms] = useState('');
 
-    // Håndter formularindsendelse
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Opret nyt aftaleobjekt
         const newAgreement: Agreement = {
             id: agreements.length + 1,
             title,
@@ -30,36 +30,34 @@ export default function NewAgreementPage() {
             terms,
         };
 
-        // Tilføj til agreements-arrayet (i en rigtig app ville dette være et API-kald)
         agreements.push(newAgreement);
 
-        // Naviger tilbage til aftaler-siden
         router.push('/agreements');
     };
 
     return (
-        <div className="p-8">
-            <h1 className="text-2xl font-bold">Opret ny aftale</h1>
-            <form onSubmit={handleSubmit} className="mt-4 space-y-4">
-                {/* Titel */}
-                <div>
-                    <label className="block text-sm font-medium">Titel:</label>
+        <div className="p-8 bg-background min-h-screen">
+            <h1 className="text-3xl font-bold mb-6">Create New Agreement</h1>
+            <form onSubmit={handleSubmit} className="bg-surface p-6 shadow-card rounded-lg">
+                {/* Title */}
+                <div className="mb-4">
+                    <label className="block text-sm font-medium mb-1">Title</label>
                     <input
                         type="text"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        className="border p-2 rounded w-full"
+                        className="w-full p-2 border rounded focus:border-primary focus:outline-none"
                         required
                     />
                 </div>
 
                 {/* Status */}
-                <div>
-                    <label className="block text-sm font-medium">Status:</label>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium mb-1">Status</label>
                     <select
                         value={status}
                         onChange={(e) => setStatus(e.target.value as AgreementStatus)}
-                        className="border p-2 rounded w-full"
+                        className="w-full p-2 border rounded focus:border-primary focus:outline-none"
                     >
                         {Object.values(AgreementStatus).map((statusOption) => (
                             <option key={statusOption} value={statusOption}>
@@ -69,59 +67,59 @@ export default function NewAgreementPage() {
                     </select>
                 </div>
 
-                {/* Leverandør */}
-                <div>
-                    <label className="block text-sm font-medium">Leverandør:</label>
+                {/* Supplier */}
+                <div className="mb-4">
+                    <label className="block text-sm font-medium mb-1">Supplier</label>
                     <input
                         type="text"
                         value={supplier}
                         onChange={(e) => setSupplier(e.target.value)}
-                        className="border p-2 rounded w-full"
+                        className="w-full p-2 border rounded focus:border-primary focus:outline-none"
                         required
                     />
                 </div>
 
-                {/* Startdato */}
-                <div>
-                    <label className="block text-sm font-medium">Startdato:</label>
+                {/* Start Date */}
+                <div className="mb-4">
+                    <label className="block text-sm font-medium mb-1">Start Date</label>
                     <input
                         type="date"
                         value={startDate}
                         onChange={(e) => setStartDate(e.target.value)}
-                        className="border p-2 rounded w-full"
+                        className="w-full p-2 border rounded focus:border-primary focus:outline-none"
                         required
                     />
                 </div>
 
-                {/* Slutdato */}
-                <div>
-                    <label className="block text-sm font-medium">Slutdato:</label>
+                {/* End Date */}
+                <div className="mb-4">
+                    <label className="block text-sm font-medium mb-1">End Date</label>
                     <input
                         type="date"
                         value={endDate}
                         onChange={(e) => setEndDate(e.target.value)}
-                        className="border p-2 rounded w-full"
+                        className="w-full p-2 border rounded focus:border-primary focus:outline-none"
                         required
                     />
                 </div>
 
-                {/* Vilkår */}
-                <div>
-                    <label className="block text-sm font-medium">Vilkår:</label>
+                {/* Terms */}
+                <div className="mb-6">
+                    <label className="block text-sm font-medium mb-1">Terms</label>
                     <textarea
                         value={terms}
                         onChange={(e) => setTerms(e.target.value)}
-                        className="border p-2 rounded w-full"
+                        className="w-full p-2 border rounded focus:border-primary focus:outline-none"
                         rows={4}
                     />
                 </div>
 
-                {/* Indsend knap */}
+                {/* Submit Button */}
                 <button
                     type="submit"
-                    className="bg-accent text-white p-2 rounded"
+                    className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition"
                 >
-                    Opret aftale
+                    Create Agreement
                 </button>
             </form>
         </div>

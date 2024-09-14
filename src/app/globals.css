@@ -1,3 +1,31 @@
+/* globals.css */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom Global Styles */
+body {
+    @apply bg-background text-secondary font-sans;
+}
+
+a {
+    @apply text-primary hover:underline transition;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply text-secondary font-semibold;
+}
+
+p {
+    @apply mb-4;
+}
+
+.container {
+    @apply max-w-7xl mx-auto;
+}

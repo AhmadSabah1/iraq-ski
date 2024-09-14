@@ -8,32 +8,31 @@ export default function CategoryPage() {
     const params = useParams();
     const slugParam = params.slug;
 
-    // Sikrer, at 'slug' er en streng
+    // Ensure 'slug' is a string
     const slug = Array.isArray(slugParam) ? slugParam[0] : slugParam;
 
-    // Map slug til produktkategori
+    // Map slug to product category
     const categoryMap: { [key: string]: ProductCategory } = {
-        'it-loesninger': ProductCategory.ITLoesninger,
-        'kontorartikler': ProductCategory.Kontorartikler,
-        'transporttjenester': ProductCategory.Transporttjenester,
-        'byggematerialer': ProductCategory.Byggematerialer,
+        'it-solutions': ProductCategory.ITSolutions,
+        'office-supplies': ProductCategory.OfficeSupplies,
+        'transport-services': ProductCategory.TransportServices,
+        'building-materials': ProductCategory.BuildingMaterials,
     };
 
     const category = categoryMap[slug];
 
     if (!category) {
-        return <p>Kategorien blev ikke fundet.</p>;
+        return <p>Category not found.</p>;
     }
 
-    // Filtrer produkter baseret på kategori
+    // Filter products based on category
     const categoryProducts = products.filter(
         (product) => product.category === category
     );
 
     return (
         <div className="p-8">
-            <h1 className="text-2xl font-bold">{category}</h1>
-            {/* Din filtrerings- og produktlistekode */}
+            <h1 className="text-3xl font-bold mb-6">{category}</h1>
             <ProductList products={categoryProducts} />
         </div>
     );

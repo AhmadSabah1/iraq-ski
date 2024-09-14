@@ -1,37 +1,31 @@
-import type { Config } from "tailwindcss";
+// tailwind.config.js
 
-const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+const colors = require('tailwindcss/colors');
+
+module.exports = {
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
-        background: "#F5F5F5", // Lys grå baggrund
-        text: "#333333", // Mørk grå tekst
-        accent: "#007BFF", // Blå accentfarve
-        warning: "#FF5722", // Orange advarselsfarve
-        success: "#4CAF50", // Grøn succesfarve
-        muted: "#666666", // Lysere grå til noter eller labels
-        // Behold de eksisterende CSS-variabler
-        backgroundVar: "var(--background)",
-        foregroundVar: "var(--foreground)",
+        primary: '#0052CC',
+        secondary: '#172B4D',
+        accent: '#00B8D9',
+        success: '#36B37E',
+        warning: '#FFAB00',
+        danger: '#FF5630',
+        background: '#F4F5F7',
+        surface: '#FFFFFF',
+        muted: '#6B778C',
+        'primary-dark': '#003D99',
       },
       fontFamily: {
-        sans: ['Roboto', 'Open Sans', 'sans-serif'], // Primær skrifttype
+        sans: ['"Helvetica Neue"', 'Arial', 'sans-serif'],
       },
-      fontSize: {
-        base: ['16px', '24px'],  // Brødtekst
-        lg: ['18px', '28px'],    // Lidt større brødtekst
-        xl: ['24px', '32px'],    // Store overskrifter
-        '2xl': ['28px', '36px'], // Meget store overskrifter
-        sm: ['14px', '20px'],    // Mindre tekst som labels
-        xs: ['12px', '16px'],    // Ekstra små noter eller labels
+      boxShadow: {
+        card: '0 1px 4px rgba(0,0,0,0.1)',
+        dropdown: '0 4px 8px rgba(0,0,0,0.15)',
       },
     },
   },
   plugins: [],
 };
-export default config;

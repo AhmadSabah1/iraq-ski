@@ -1,20 +1,31 @@
+// data/enums.ts
+
 export enum AgreementStatus {
-    Aktiv = 'Aktiv',
-    Udloebet = 'Udløbet',
-    UnderForhandling = 'Under Forhandling',
+    Active = 'Active',
+    Expired = 'Expired',
+    Negotiation = 'Under Negotiation',
+    Pending = 'Pending',
+    Canceled = 'Cancelled'
 }
-export enum SupplierType {
-    Godkendt = 'Godkendt',
-    Potentiel = 'Potentiel',
-}
+
 export enum ReportType {
-    Indkoeb = 'Indkøb',
-    Udgifter = 'Udgifter',
-    LeverandoerPerformance = 'Leverandørperformance',
+    Purchasing = 'Purchasing',
+    Financial = 'Financial',
+    Inventory = 'Inventory',
+    Sales = 'Sales',
+    Performance = 'Supplier Performance',
+
 }
+
 export enum ProductCategory {
-    ITLoesninger = 'IT-løsninger',
-    Kontorartikler = 'Kontorartikler',
-    Transporttjenester = 'Transporttjenester',
-    Byggematerialer = 'Byggematerialer',
+    ITSolutions = 'IT Solutions',
+    OfficeSupplies = 'Office Supplies',
+    TransportServices = 'Transport Services',
+    BuildingMaterials = 'Building Materials',
+}
+
+export enum SupplierType {
+    Approved = 'Approved',
+    Potential = 'Potential',
+    Suspended = 'Suspended',
 }

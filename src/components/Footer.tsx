@@ -1,15 +1,10 @@
-'use client'
+// components/Footer.tsx
+
 export default function Footer() {
     return (
-        <footer className="bg-gray-800 text-white p-4 flex justify-between">
-            <div>
-                <a href="/about">Om os</a> | <a href="/contact">Kontakt</a> | <a href="/privacy">Privatlivspolitik</a> | <a href="/terms">Vilkår</a>
-            </div>
-            <div>
-                <select className="bg-gray-700 text-white">
-                    <option>Dansk</option>
-                    <option>English</option>
-                </select>
+        <footer className="bg-surface border-t py-4">
+            <div className="container mx-auto px-6 text-center text-sm text-muted">
+                &copy; {new Date().getFullYear()} FlowCore. All rights reserved.
             </div>
         </footer>
     );

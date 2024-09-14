@@ -1,24 +1,18 @@
-import Link from 'next/link';
-import {slugify} from "@/utils/slugify";
+// components/ProductList.tsx
+import {products} from "@/data/products";
 
-export default function ProductsPage() {
-    const categories = [
-        { name: 'IT-løsninger', slug: slugify('IT-løsninger') },
-        { name: 'Kontorartikler', slug: slugify('Kontorartikler') },
-        { name: 'Transporttjenester', slug: slugify('Transporttjenester') },
-        { name: 'Byggematerialer', slug: slugify('Byggematerialer') },
-    ];
-
+export default function ProductList() {
     return (
-        <div className="p-8">
-            <h1 className="text-2xl font-bold">Produkter og ydelser</h1>
-            <p>Vælg en kategori for at se produkter og ydelser.</p>
-            <ul>
-                {categories.map((category) => (
-                    <li key={category.slug} className="mb-2">
-                        <Link href={`/products/${category.slug}`} className="text-blue-500 hover:underline">
-                            {category.name}
-                        </Link>
+        <div className="p-6">
+            <h2 className="text-2xl font-semibold mb-4">Products</h2>
+            <ul className="space-y-4">
+                {products.map((product) => (
+                    <li key={product.id} className="border p-4 rounded-lg">
+                        <h3 className="text-lg font-bold">{product.name}</h3>
+                        <p>Category: {product.category}</p>
+                        <p>Price: ${product.price}</p>
+                        <p>Supplier: {product.supplier}</p>
+                        <p>Rating: {product.rating}</p>
                     </li>
                 ))}
             </ul>

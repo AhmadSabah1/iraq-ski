@@ -1,29 +1,56 @@
+// app/layout.tsx
+
+'use client';
 import './globals.css';
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
-import { slugify } from '../utils/slugify';
+import {
+    BuildingOfficeIcon,
+    ClipboardDocumentListIcon,
+    ComputerDesktopIcon,
+    TruckIcon
+} from '@heroicons/react/24/outline';
+
+export default function RootLayout({ children }: { children: ReactNode }) {
+// app/layout.tsx or wherever you define categories
 
 
-export default function RootLayout({children}: { children: ReactNode }) {
+
     const categories = [
-        { name: 'IT-løsninger', slug: slugify('IT-løsninger') },
-        { name: 'Kontorartikler', slug: slugify('Kontorartikler') },
-        { name: 'Transporttjenester', slug: slugify('Transporttjenester') },
-        { name: 'Byggematerialer', slug: slugify('Byggematerialer') },
+        {
+            name: 'IT Solutions',
+            slug: 'it-solutions',
+            icon: <ComputerDesktopIcon className="h-6 w-6" />,
+        },
+        {
+            name: 'Office Supplies',
+            slug: 'office-supplies',
+            icon: <ClipboardDocumentListIcon className="h-6 w-6" />,
+        },
+        {
+            name: 'Transport Services',
+            slug: 'transport-services',
+            icon: <TruckIcon className="h-6 w-6" />,
+        },
+        {
+            name: 'Building Materials',
+            slug: 'building-materials',
+            icon: <BuildingOfficeIcon className="h-6 w-6" />,
+        },
     ];
+
     return (
-        <html lang="da">
+        <html lang="en">
         <body className="min-h-screen flex flex-col">
-        <Header/>
-        <div className="flex flex-1">
-            <Sidebar categories={categories}/>
-            <main className="flex-1 p-8">
-                {children}
-            </main>
+        <Header />
+        <div className="flex flex-1 pt-16">
+            {/* Adjusted for fixed header */}
+            <Sidebar categories={categories} />
+            <main className="flex-1 p-8 bg-background">{children}</main>
         </div>
-        <Footer/>
+        <Footer />
         </body>
         </html>
     );

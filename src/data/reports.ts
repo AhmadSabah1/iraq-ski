@@ -1,3 +1,5 @@
+// data/reports.ts
+
 import { ReportType } from './enums';
 
 export interface Report {
@@ -11,37 +13,72 @@ export interface Report {
 export const reports: Report[] = [
     {
         id: 1,
-        title: 'Indkøbsrapport Q1',
+        title: 'Purchasing Report Q1',
         date: '2023-03-31',
-        type: ReportType.Indkoeb,
-        summary: 'Oversigt over indkøb i første kvartal.',
+        type: ReportType.Purchasing,
+        summary: 'Overview of purchases in the first quarter.',
     },
     {
         id: 2,
-        title: 'Udgiftsrapport April 2023',
-        date: '2023-04-30',
-        type: ReportType.Udgifter,
-        summary: 'Detaljeret oversigt over udgifter i april måned.',
+        title: 'Financial Summary Q2',
+        date: '2023-06-30',
+        type: ReportType.Financial,
+        summary: 'Financial overview for the second quarter.',
     },
     {
         id: 3,
-        title: 'Leverandørperformance 2022',
-        date: '2022-12-31',
-        type: ReportType.LeverandoerPerformance,
-        summary: 'Analyse af leverandørernes performance i 2022.',
+        title: 'Inventory Performance Q3',
+        date: '2023-09-30',
+        type: ReportType.Inventory,
+        summary: 'Detailed analysis of inventory performance during Q3.',
     },
     {
         id: 4,
-        title: 'Indkøbsrapport Q2',
-        date: '2023-06-30',
-        type: ReportType.Indkoeb,
-        summary: 'Oversigt over indkøb i andet kvartal.',
+        title: 'Sales Performance Q1',
+        date: '2023-03-31',
+        type: ReportType.Sales,
+        summary: 'Summary of sales performance in Q1.',
     },
     {
         id: 5,
-        title: 'Budgetrapport 2023',
-        date: '2023-01-15',
-        type: ReportType.Udgifter,
-        summary: 'Forventede udgifter og budget for 2023.',
+        title: 'Purchasing Report Q2',
+        date: '2023-06-30',
+        type: ReportType.Purchasing,
+        summary: 'Overview of purchases in the second quarter.',
+    },
+    {
+        id: 6,
+        title: 'Financial Summary Q3',
+        date: '2023-09-30',
+        type: ReportType.Financial,
+        summary: 'Financial overview for the third quarter.',
+    },
+    {
+        id: 7,
+        title: 'Company Performance Report H1',
+        date: '2023-06-30',
+        type: ReportType.Performance,
+        summary: 'A comprehensive performance report for the first half of 2023.',
+    },
+    {
+        id: 8,
+        title: 'Inventory Analysis Q2',
+        date: '2023-06-30',
+        type: ReportType.Inventory,
+        summary: 'Detailed analysis of inventory performance during Q2.',
+    },
+    {
+        id: 9,
+        title: 'Sales Report Q2',
+        date: '2023-06-30',
+        type: ReportType.Sales,
+        summary: 'Summary of sales activities and performance in Q2.',
+    },
+    {
+        id: 10,
+        title: 'Purchasing Report Q3',
+        date: '2023-09-30',
+        type: ReportType.Purchasing,
+        summary: 'Overview of purchases in the third quarter.',
     },
 ];
