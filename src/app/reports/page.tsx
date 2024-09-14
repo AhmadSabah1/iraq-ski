@@ -1,4 +1,4 @@
-import { reports } from '../../data/reports';
+import { reports } from '@/data/reports';
 
 export default function ReportsPage() {
     return (

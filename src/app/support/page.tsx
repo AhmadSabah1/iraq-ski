@@ -1,4 +1,4 @@
-import { faqs } from '../../data/faqs';
+import { faqs } from '@/data/faqs';
 
 export default function SupportPage() {
     return (
